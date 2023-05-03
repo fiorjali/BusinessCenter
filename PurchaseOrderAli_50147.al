@@ -52,7 +52,7 @@ pageextension 50147 PurchaseOrderExt extends "Purchase Order"
                     responseText := CD.POST_Request(url, jsontext,'PUT','');
 
                     //Message('Response Payload \' + responseText);
-                    HeaderFlg := false;
+                    HeaderFlg := true;
                     input.ReadFrom(responseText);
                     //Get Barcode
                     if input.Get('created_at', c) then begin
