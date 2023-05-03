@@ -47,12 +47,12 @@ pageextension 50147 PurchaseOrderExt extends "Purchase Order"
 
                     jsonObjectVar.WriteTo(jsontext);
                     url := 'https://test.artisivf.com/erp/v1/purchase_orders';
-                    
+
                     //Message('Purchase Request Payload \ \' + jsontext);
-                    responseText := CD.POST_Request(url, jsontext,'PUT','');
+                    responseText := CD.POST_Request(url, jsontext, 'PUT', '');
 
                     //Message('Response Payload \' + responseText);
-                    HeaderFlg := true;
+                    HeaderFlg := false;
                     input.ReadFrom(responseText);
                     //Get Barcode
                     if input.Get('created_at', c) then begin
@@ -89,7 +89,7 @@ pageextension 50147 PurchaseOrderExt extends "Purchase Order"
                                 jsonObjectVar.WriteTo(jsontext);
                                 url := 'https://test.artisivf.com/erp/v1/purchase_order_lines';
                                 //Message('Purchase Line Request Payload \ \' + jsontext);
-                                responseText := CD.POST_Request(url, jsontext,'POSt','');
+                                responseText := CD.POST_Request(url, jsontext, 'POSt', '');
                                 //Message(responseText);
                                 jsontext := '';
                                 Clear(jsonObjectVar);
